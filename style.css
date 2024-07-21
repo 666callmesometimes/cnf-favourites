@@ -16,12 +16,15 @@ label {
 input[type="text"],
 input[type="url"],
 input[type="number"],
-input[type="text"] {
+input[type="text"],
+#searchBar{
     width: 100%;
     padding: 10px;
     margin-top: 5px;
     border-radius: 12px;
     border: 1px solid #f6f6f6;
+    font-family: 'Segoe UI';
+    font-size: 1rem;
 
 }
 
@@ -30,6 +33,7 @@ input[type="url"]:focus,
 input[type="number"]:focus,
 input[type="text"]:focus{
     outline: none;
+    
 }
 
 button[type="submit"] {
@@ -110,6 +114,44 @@ b{
 }
 h4{
     font-size: 1.2rem;
+}
+.searchbar-container{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+#searchBar {
+    width: 90%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 12px;
+    border: 1px solid #f6f6f6;
+    font-family: 'Segoe UI';
+    font-size: 1rem;
+}
+
+#searchBar:focus {
+    outline: none;
+}
+.edit-button {
+    position: absolute;
+    top: 10px;
+    right: 70px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+.edit-button,
+.remove-button{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-family: 'Segoe UI', sans-serif;
 }
 @media only screen and (max-width: 850px) {
     h4{
