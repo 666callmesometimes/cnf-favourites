@@ -43,11 +43,13 @@ function displayFavorites() {
         const li = document.createElement('li');
         li.innerHTML = `
             <a href="${product.link}" target="_blank" class="item-link">
-                <h4>${product.name}</h4>
-                <p>Price: ¥${product.price}</p>
                 <img src="${product.image}" alt="${product.name}">
-                ${product.size ? `<p>Size: ${product.size}</p>` : ''}
-                ${product.batch ? `<p>Batch: ${product.batch}</p>` : ''}
+                <span>
+                <h4>${product.name}</h4>
+                <p>Price: <b>¥${product.price}</b></p>
+                ${product.size ? `<p>Size: <b>${product.size}</b></p>` : ''}
+                ${product.batch ? `<p>Batch:<b> ${product.batch}</b></p>` : ''}
+                </span>
             </a>
             <button class="remove-button" data-index="${index}">Remove</button>
         `;
@@ -79,3 +81,15 @@ document.getElementById('batch').addEventListener('change', function() {
 });
 
 document.addEventListener('DOMContentLoaded', displayFavorites);
+
+
+
+/*document.addEventListener("DOMContentLoaded", function() {
+    var elements = document.querySelectorAll('h4');
+    elements.forEach(function(element) {
+        var maxLength = element.getAttribute('data-maxlength');
+        if (element.textContent.length > maxLength) {
+            element.textContent = element.textContent.substring(0, maxLength) + '...';
+        }
+    });
+});*/
