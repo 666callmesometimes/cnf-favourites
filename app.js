@@ -127,3 +127,26 @@ function editFavorite(index) {
     document.getElementById('productForm').style.display = 'block';
     document.getElementById('toggleForm').textContent = '-';
 }
+
+
+/*darkmode*/
+const darkModeToggle = document.createElement('label');
+darkModeToggle.classList.add('switch');
+darkModeToggle.innerHTML = `
+    <input type="checkbox" id="darkModeToggle">
+    <span class="slider"></span>
+`;
+document.body.prepend(darkModeToggle);
+
+document.getElementById('darkModeToggle').addEventListener('change', function() {
+    document.body.classList.toggle('dark-mode');
+    localStorage.setItem('darkMode', this.checked);
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const darkMode = JSON.parse(localStorage.getItem('darkMode'));
+    if (darkMode) {
+        document.body.classList.add('dark-mode');
+        document.getElementById('darkModeToggle').checked = true;
+    }
+});

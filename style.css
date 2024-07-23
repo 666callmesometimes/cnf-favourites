@@ -2,6 +2,11 @@ body {
     font-family: "Segoe UI", sans-serif;
     margin: 20px;
     background-color: #FAFAFA;
+    transition: background-color 0.3s, color 0.3s;
+}
+body.dark-mode {
+    background-color: #121212;
+    color: white;
 }
 
 form {
@@ -25,6 +30,7 @@ input[type="text"],
     border: 1px solid #f6f6f6;
     font-family: 'Segoe UI';
     font-size: 1rem;
+    transition: background-color 0.3s, color 0.3s;
 
 }
 
@@ -66,6 +72,10 @@ li {
     padding: 10px;
     position: relative;
     background-color: white;
+    transition: background-color 0.3s;
+}
+body.dark-mode li {
+    background-color: #1e1e1e;
 }
 a.item-link {
     display: block;
@@ -153,6 +163,7 @@ h4{
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     font-family: 'Segoe UI', sans-serif;
+    font-weight: 500;
 }
 @media only screen and (max-width: 850px) {
     h4{
@@ -195,3 +206,94 @@ h4{
         width: 100%;
     }
   }
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 24px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+    width: 100%;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="url"],
+body.dark-mode input[type="number"],
+body.dark-mode input[type="text"],
+body.dark-mode #searchBar {
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+body.dark-mode button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .edit-button,
+body.dark-mode .remove-button {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black;
+}
+body.dark-mode b{
+    color: #eaeaea;
+}
+body.dark-mode .toggle-button,
+body.dark-mode .remove-button,
+body.dark-mode .edit-button
+{
+    background-color: rgba(50, 50, 50, 0.6);
+    color: #fafafa;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+}
+  
+::-webkit-scrollbar-thumb {
+    background: rgba(84, 84, 84, 0.2);
+    border-radius: 5px;
+}
+
