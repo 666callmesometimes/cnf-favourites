@@ -28,7 +28,7 @@ input[type="text"],
     margin-top: 5px;
     border-radius: 12px;
     border: 1px solid #f6f6f6;
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI', sans-serif;
     font-size: 1rem;
     transition: background-color 0.3s, color 0.3s;
 
@@ -126,6 +126,17 @@ b{
 h4{
     font-size: 1.2rem;
 }
+h3{
+    padding: 0;
+    margin-top: 0;
+    margin-left: 1rem;
+    font-family: "Segoe UI", sans-serif;
+    color:#555;
+    font-weight: 500;
+}
+body.dark-mode h3 {
+    color: #777;
+}
 .searchbar-container{
     width: 100%;
     display: flex;
@@ -140,8 +151,12 @@ h4{
     margin: 10px 0;
     border-radius: 12px;
     border: 1px solid #f6f6f6;
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI', sans-serif;
     font-size: 1rem;
+}
+
+::placeholder {
+    font-family: "Segoe UI", sans-serif;
 }
 
 #searchBar:focus {
@@ -165,48 +180,8 @@ h4{
     font-family: 'Segoe UI', sans-serif;
     font-weight: 500;
 }
-@media only screen and (max-width: 850px) {
-    h4{
-        width: 50vw; /* Maksymalna szerokość elementu */
-        white-space: nowrap; /* Nie łamie linii */
-        overflow: hidden; /* Ukrywa nadmiarowy tekst */
-        text-overflow: ellipsis; /* Dodaje trzykropek */
-    }
-}
-@media only screen and (max-width: 600px) {
-    h4{
-        width: 30vw; /* Maksymalna szerokość elementu */
-        white-space: nowrap; /* Nie łamie linii */
-        overflow: hidden; /* Ukrywa nadmiarowy tekst */
-        text-overflow: ellipsis; /* Dodaje trzykropek */
-    }
-}
-@media only screen and (max-width: 425px) {
-    a.item-link {
-        display: block;
-        text-decoration: none;
-        color: inherit;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-    }
-    img {
-        max-width: 290px;
-        display: block;
-        width: 100%;
-        height: auto;
-    }
-    h4{
-        font-size: 24px;
-        width: 80vw;
-    }
-    button[type="submit"]{
-        width: 100%;
-    }
-  }
-  .dropdown {
+
+.dropdown {
     position: relative;
     display: inline-block;
 }
@@ -239,6 +214,9 @@ body.dark-mode .dropdown-toggle {
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     padding: 1rem;
+    flex-direction: column;
+    gap: 1rem;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 body.dark-mode .dropdown-menu{
@@ -328,6 +306,52 @@ body.dark-mode .edit-button
     background-color: rgba(50, 50, 50, 0.6);
     color: #fafafa;
 }
+
+.dropdown-menu .dropdown-item{
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width: 850px) {
+    h4{
+        width: 50vw; /* Maksymalna szerokość elementu */
+        white-space: nowrap; /* Nie łamie linii */
+        overflow: hidden; /* Ukrywa nadmiarowy tekst */
+        text-overflow: ellipsis; /* Dodaje trzykropek */
+    }
+}
+@media only screen and (max-width: 600px) {
+    h4{
+        width: 30vw; /* Maksymalna szerokość elementu */
+        white-space: nowrap; /* Nie łamie linii */
+        overflow: hidden; /* Ukrywa nadmiarowy tekst */
+        text-overflow: ellipsis; /* Dodaje trzykropek */
+    }
+}
+@media only screen and (max-width: 425px) {
+    a.item-link {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    img {
+        max-width: 290px;
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+    h4{
+        font-size: 24px;
+        width: 80vw;
+    }
+    button[type="submit"]{
+        width: 100%;
+    }
+  }
 
 ::-webkit-scrollbar {
     width: 10px;

@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector('.dropdown-toggle').addEventListener('click', function() {
         const dropdownMenu = document.querySelector('.dropdown-menu');
-        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
     });
 });
 
