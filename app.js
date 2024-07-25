@@ -59,6 +59,11 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.classList.add('dark-mode');
         document.getElementById('darkModeToggle').checked = true;
     }
+
+    document.querySelector('.dropdown-toggle').addEventListener('click', function() {
+        const dropdownMenu = document.querySelector('.dropdown-menu');
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+    });
 });
 
 document.getElementById('darkModeToggle').addEventListener('change', function() {
