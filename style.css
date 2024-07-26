@@ -131,8 +131,8 @@ h3{
     margin-top: 0;
     margin-left: 1rem;
     font-family: "Segoe UI", sans-serif;
-    color:#555;
-    font-weight: 500;
+    color:#999;
+    font-weight: 600;
 }
 body.dark-mode h3 {
     color: #777;
@@ -199,6 +199,21 @@ body.dark-mode h3 {
     cursor: pointer;
     font-size: 1em;
     background-color: rgba(0, 0, 0, 0);
+}
+
+@keyframes settings-open {
+    100%{transform: rotate(180deg);}
+}
+@keyframes settings-closed {
+    100%{transform: rotate(-180deg);}
+}
+
+.settings-open {
+    animation: settings-open 800ms;
+}
+
+.settings-closed {
+    animation: settings-closed 800ms;
 }
 
 body.dark-mode .dropdown-toggle {
@@ -309,6 +324,8 @@ body.dark-mode .edit-button
 
 .dropdown-menu .dropdown-item{
     box-sizing: border-box;
+    min-height: 26px;
+
 }
 
 @media only screen and (max-width: 850px) {

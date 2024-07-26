@@ -62,8 +62,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector('.dropdown-toggle').addEventListener('click', function() {
         const dropdownMenu = document.querySelector('.dropdown-menu');
-        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex';
+        dropdownMenu.style.display = dropdownMenu.style.display === 'flex' ? 'none' : 'flex'; 
     });
+});
+
+const dropdownToggle = document.querySelector('.dropdown-toggle');
+dropdownToggle.addEventListener('click', function() {
+    const dropdownMenu = document.querySelector('.dropdown-menu');
+    const isOpen = dropdownMenu.style.display === 'flex';
+
+    if (isOpen) {
+        dropdownMenu.style.display = 'flex';
+        dropdownToggle.classList.remove('settings-open');
+        dropdownToggle.classList.add('settings-closed');
+    } else {
+        dropdownMenu.style.display = 'none';
+        dropdownToggle.classList.remove('settings-closed');
+        dropdownToggle.classList.add('settings-open');
+    }
 });
 
 document.getElementById('darkModeToggle').addEventListener('change', function() {
@@ -142,3 +158,4 @@ function editFavorite(index) {
     document.getElementById('productForm').style.display = 'block';
     document.getElementById('toggleForm').textContent = '-';
 }
+
