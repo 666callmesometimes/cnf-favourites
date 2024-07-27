@@ -197,6 +197,9 @@ if (dataToAdd) {
 
 //TEST SHAREOWANIA CALEJ LISTY
 
+    document.getElementById('shareLink').addEventListener('click', generateShareableLink);
+});
+
 function encodeFavorites(favorites) {
     return btoa(JSON.stringify(favorites));
 }
