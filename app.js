@@ -1,7 +1,7 @@
 document.getElementById('toggleForm').addEventListener('click', function() {
     const form = document.getElementById('productForm');
     const toggleButton = document.getElementById('toggleForm');
-    if (form.style.display === 'none') {
+    if (form.style.display === 'none' || form.style.display === '') {
         form.style.display = 'block';
         toggleButton.textContent = '-';
     } else {
