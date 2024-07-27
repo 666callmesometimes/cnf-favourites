@@ -180,7 +180,7 @@ function shareFavorite(index) {
     const product = favorites[index];
     const shareableData = encodeURIComponent(JSON.stringify([product]));
     const shareUrl = `${window.location.origin}/?data=${shareableData}`;
-    prompt("Share this URL with others:", shareUrl);
+    prompt("Share this item with others:", shareUrl);
 }
 
 // Jeśli strona jest otwarta z danymi do dodania
