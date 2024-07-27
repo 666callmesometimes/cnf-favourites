@@ -197,7 +197,7 @@ if (dataToAdd) {
 
 //TEST SHAREOWANIA CALEJ LISTY
 
-    document.getElementById('shareLink').addEventListener('click', generateShareableLink);
+    document.getElementById('shareList').addEventListener('click', generateShareableLink);
 });
 
 function encodeFavorites(favorites) {
