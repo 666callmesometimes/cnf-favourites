@@ -72,11 +72,11 @@ dropdownToggle.addEventListener('click', function() {
     const isOpen = dropdownMenu.style.display === 'flex';
 
     if (isOpen) {
-        dropdownMenu.style.display = 'flex';
+        dropdownMenu.style.display = 'none';
         dropdownToggle.classList.remove('settings-open');
         dropdownToggle.classList.add('settings-closed');
     } else {
-        dropdownMenu.style.display = 'none';
+        dropdownMenu.style.display = 'flex';
         dropdownToggle.classList.remove('settings-closed');
         dropdownToggle.classList.add('settings-open');
     }
@@ -90,7 +90,7 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
 document.getElementById('shareList').addEventListener('click', function() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const shareableData = encodeURIComponent(JSON.stringify(favorites));
-    const shareUrl = `${window.location.origin}/?data=${shareableData}`;
+    const shareUrl = `${window.location.origin}${window.location.pathname}?view=${shareableData}`;
     prompt("Share this URL with others:", shareUrl);
 });
 
@@ -98,7 +98,10 @@ function displayFavorites(searchQuery = '') {
     const favoritesList = document.getElementById('favoritesList');
     favoritesList.innerHTML = '';
 
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const urlParams = new URLSearchParams(window.location.search);
+    const viewData = urlParams.get('view');
+    let favorites = viewData ? JSON.parse(decodeURIComponent(viewData)) : JSON.parse(localStorage.getItem('favorites')) || [];
+
     const filteredFavorites = favorites.filter(product => 
         product.name.toLowerCase().includes(searchQuery.toLowerCase())
     );
@@ -179,17 +182,6 @@ function shareFavorite(index) {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const product = favorites[index];
     const shareableData = encodeURIComponent(JSON.stringify([product]));
-    const shareUrl = `${window.location.origin}/?data=${shareableData}`;
+    const shareUrl = `${window.location.origin}${window.location.pathname}?view=${shareableData}`;
     prompt("Share this URL with others:", shareUrl);
-}
-
-// Jeśli strona jest otwarta z danymi do dodania
-const urlParams = new URLSearchParams(window.location.search);
-const dataToAdd = urlParams.get('data');
-if (dataToAdd) {
-    const sharedProducts = JSON.parse(decodeURIComponent(dataToAdd));
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    favorites = [...favorites, ...sharedProducts];
-    localStorage.setItem('favorites', JSON.stringify(favorites));
-    displayFavorites();
 }
