@@ -174,7 +174,8 @@ body.dark-mode h3 {
     margin-right: 1rem;
 }
 .edit-button,
-.remove-button{
+.remove-button,
+.share-button {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
     font-family: 'Segoe UI', sans-serif;
@@ -187,7 +188,7 @@ body.dark-mode h3 {
 }
 
 .dropdown-toggle {
-    background-image: url(https://cdn.discordapp.com/attachments/1233519968239485023/1266018437210177618/settings.png?ex=66a39f0c&is=66a24d8c&hm=238884ef2a1015d7cfdb6489e7238199fef635b2b188f2dfe4bba568cfcc5e30&);
+    background-image: url(https://cdn.discordapp.com/attachments/1233519968239485023/1266018437210177618/settings.png?ex=66a6420c&is=66a4f08c&hm=929dd83bfa3137eab669b13c3d6d98db81a3c85815d41f288c556b590a01b2b9&);
     background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
@@ -217,7 +218,7 @@ body.dark-mode h3 {
 }
 
 body.dark-mode .dropdown-toggle {
-    background-image: url(https://cdn.discordapp.com/attachments/1233519968239485023/1266018436988010506/settings_1.png?ex=66a39f0c&is=66a24d8c&hm=9f251f48653029afcae69f5527e44f6682628288259f4e173ae6d67270e15d2e&);
+    background-image: url(https://cdn.discordapp.com/attachments/1233519968239485023/1266018436988010506/settings_1.png?ex=66a6420c&is=66a4f08c&hm=ec39747f0ed9773be5e4c1f4732ea367ccce9757a89d5c521eb621490b7bf159&);
 } 
 
 .dropdown-menu {
@@ -307,7 +308,8 @@ body.dark-mode button[type="submit"] {
 }
 
 body.dark-mode .edit-button,
-body.dark-mode .remove-button {
+body.dark-mode .remove-button,
+.share-button {
     background-color: rgba(255, 255, 255, 0.5);
     color: black;
 }
@@ -316,7 +318,8 @@ body.dark-mode b{
 }
 body.dark-mode .toggle-button,
 body.dark-mode .remove-button,
-body.dark-mode .edit-button
+body.dark-mode .edit-button,
+.share-button
 {
     background-color: rgba(50, 50, 50, 0.6);
     color: #fafafa;
@@ -325,8 +328,48 @@ body.dark-mode .edit-button
 .dropdown-menu .dropdown-item{
     box-sizing: border-box;
     min-height: 26px;
+    display: flex;
+    cursor: pointer;
 
 }
+
+#shareList{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0;
+    padding: 0;
+}
+
+#shareListButton {
+    border: none;
+    background-color: none;
+    background-image: url(https://cdn.discordapp.com/attachments/1233519968239485023/1266853111914430474/share_2.png?ex=66a6a866&is=66a556e6&hm=372442f903ef764f48deef7d551cc3fdae4b577063a7c78c44211923d203d327&);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    margin-right: 4px;
+    width: 16px;
+    height: 22px;
+}
+
+body.dark-mode #shareListButton {
+    background-image: url(https://cdn.discordapp.com/attachments/1233519968239485023/1266853925181718569/share_3.png?ex=66a6a928&is=66a557a8&hm=fd335ebcf3182a12db8f508b86857f904dd46da86e3109d38b7fd3a051fd2638&);
+}
+
+.share-button {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
 
 @media only screen and (max-width: 850px) {
     h4{
