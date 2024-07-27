@@ -87,12 +87,12 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
     localStorage.setItem('darkMode', this.checked);
 });
 
-document.getElementById('shareListButton').addEventListener('click', function() {
+/*document.getElementById('shareListButton').addEventListener('click', function() {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const shareableData = encodeURIComponent(JSON.stringify(favorites));
     const shareUrl = `${window.location.origin}/?data=${shareableData}`;
     prompt("Share this URL with others:", shareUrl);
-});
+});*/
 
 function displayFavorites(searchQuery = '') {
     const favoritesList = document.getElementById('favoritesList');
