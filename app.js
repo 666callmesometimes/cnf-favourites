@@ -87,6 +87,12 @@ document.getElementById('darkModeToggle').addEventListener('change', function() 
     localStorage.setItem('darkMode', this.checked);
 });
 
+document.getElementById('shareListButton').addEventListener('click', function() {
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const shareableData = encodeURIComponent(JSON.stringify(favorites));
+    const shareUrl = `${window.location.origin}/?data=${shareableData}`;
+    prompt("Share this URL with others:", shareUrl);
+});
 
 function displayFavorites(searchQuery = '') {
     const favoritesList = document.getElementById('favoritesList');
@@ -175,4 +181,15 @@ function shareFavorite(index) {
     const shareableData = encodeURIComponent(JSON.stringify([product]));
     const shareUrl = `${window.location.origin}/?data=${shareableData}`;
     prompt("Share this URL with others:", shareUrl);
+}
+
+// Jeśli strona jest otwarta z danymi do dodania
+const urlParams = new URLSearchParams(window.location.search);
+const dataToAdd = urlParams.get('data');
+if (dataToAdd) {
+    const sharedProducts = JSON.parse(decodeURIComponent(dataToAdd));
+    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    favorites = [...favorites, ...sharedProducts];
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    displayFavorites();
 }
